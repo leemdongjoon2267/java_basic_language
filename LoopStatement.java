@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LoopStatement {
@@ -142,11 +143,132 @@ public class LoopStatement {
 //            System.out.println(num+"X"+i+"="+num*i);
 //        }
 
-        for(int i=2; i<10; i++){
-            System.out.println(i+"단입니다.");
-            for(int j=1; j<10; j++){
-                System.out.println(i+"X"+j+"="+i*j);
+//        for(int i=2; i<10; i++){
+//            System.out.println(i+"단입니다.");
+//            for(int j=1; j<10; j++){
+//                System.out.println(i+"X"+j+"="+i*j);
+//            }
+//        }
+
+//        배열
+//        int[] arr = {100,20,30,60,80,20};
+////        총합
+//        int sum = 0;
+////        for(int i : arr){
+////            sum = sum+i;
+////        }
+//        for(int i=0; i<arr.length; i++){
+//            System.out.println(arr[i]);
+////            sum = arr[0]+arr[1]+arr[2]+arr[3]+arr[4]+arr[5];
+//            sum = sum+arr[i];
+//        }
+//        System.out.println("총합 : "+sum);
+////        평균
+//        double average = (double)sum/arr.length;
+//        System.out.println("평균 :"+(double)average);
+////        최대값, 최소값
+//        int max = arr[0];
+//        for(int i=0; i<arr.length; i++){
+//           if(arr[i]> max){
+//               max = arr[i];
+//           }
+//        }
+//        System.out.println("최대값 : "+max);
+//        int min = arr[0];
+//        for(int i=0; i<arr.length; i++){
+//            if(arr[i]< min){
+//                min = arr[i];
+//            }
+//        }
+//        System.out.println("최소값 : "+min);
+
+//        최대공약수, 최소공배수
+//        int a = 10; // 1,2,5,10
+//        int b = 20; // 1,2,4,5,10,20
+//       int num = a < b ? a : b;
+//       int max = 0;
+//       for(int i=1; i<=num; i++){
+//            if (a % i == 0 && b % i == 0) {
+//                max = i;
+//            }
+//        }
+//       int min = max*(a/max)*(b/max);
+
+//        int[] arr = {30,45,150,75,300};
+//        int num = Arrays.stream(arr).min().getAsInt();
+//        int max = 0;
+//        for(int i=1; i<=num; i++){
+//            boolean trueOrNot = true;
+//            for(int a : arr){
+//                if(a % i !=0){
+//                    trueOrNot = false;
+//                }
+//            }
+//            if(trueOrNot == true){
+//                max = i;
+//            }
+//        }
+//        System.out.println(max);
+//
+//        int min = max;
+//        min *= max;
+//        for(int a : arr){
+//            min *= a/max;
+//        }
+//        System.out.println(max);
+//        System.out.println(min);
+
+//        배열의 자리 바꿈
+//        int [] arr = {10,20,30,40,50}; // 20,30,40,50,10 으로 바꿔주기
+//        System.out.println(Arrays.toString(arr)); // 배열의 값이 뭐가 있는지 출력해줌
+//        //int temp = arr[0]; // temp : 임시값
+//        for(int i=0; i<arr.length-1; i++){
+//            int temp = arr[i];
+//            arr[i] = arr[i+1]; // +1해줄때는 -1도 같이 해줘야함
+//            arr[i+1] = temp; // 자리 교환
+//
+//        }
+//        버블 소트
+//        if(arr[i]<arr[i+1])
+//        버블소트를 사용 안하면 2중포문 + 뒷자리가 차면 그 횟수만큼 줄어들어야 하는 것도 감안
+//        System.out.println(Arrays.toString(arr));
+
+//        버블 소트
+//        int [] arr = {50,60,40,70,10,20};
+//        int count = 0;
+//        System.out.println(Arrays.toString(arr));
+//        for(int i=1; i<=arr.length-1; i++){
+//           for(int j=0; j<arr.length-i; j++){
+//               if(arr[j]>arr[j+1]){
+//                   int temp = arr[j+1];
+//                   arr[j+1] = arr[j];
+//                   arr[j] = temp;
+//               }
+//               count++;
+//           }
+//        }
+//        System.out.println("반복횟수는 : "+count);
+//        System.out.println(Arrays.toString(arr));
+
+
+//        1번반복
+        int [] arr = {10,20,30,40,50,60};
+        for(int i=1; i<=arr.length-1; i++) {
+            Boolean trueOrNot = true;
+
+                for (int j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        int temp = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = temp;
+                        trueOrNot = false;
+                    }
+                }
+            if(trueOrNot == true){
+                break;
             }
-        }
+            }
+
+        System.out.println(Arrays.toString(arr));
     }
 }
