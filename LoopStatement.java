@@ -222,6 +222,7 @@ public class LoopStatement {
 //        int [] arr = {10,20,30,40,50}; // 20,30,40,50,10 으로 바꿔주기
 //        System.out.println(Arrays.toString(arr)); // 배열의 값이 뭐가 있는지 출력해줌
 //        //int temp = arr[0]; // temp : 임시값
+//
 //        for(int i=0; i<arr.length-1; i++){
 //            int temp = arr[i];
 //            arr[i] = arr[i+1]; // +1해줄때는 -1도 같이 해줘야함
@@ -252,23 +253,123 @@ public class LoopStatement {
 
 
 //        1번반복
-        int [] arr = {10,20,30,40,50,60};
-        for(int i=1; i<=arr.length-1; i++) {
-            Boolean trueOrNot = true;
+//        int [] arr = {10,20,30,40,50,60};
+//        테스트 케이스를 몇개 만들기
+//        arr.length-1 : 전체 반복회수
+//        세부 반복회수 : 5 + 4 + 3 + 2 + 1
+//        for(int i=1; i<=arr.length-1; i++) {
+//            Boolean trueOrNot = true;
+//                for (int j = 0; j < arr.length - i; j++) {
+//                    if (arr[j] > arr[j + 1]) {
+//                        int temp = arr[j + 1];
+//                        arr[j + 1] = arr[j];
+//                        arr[j] = temp;
+//                        trueOrNot = false;
+//                    }
+//                }
+//            if(trueOrNot == true){
+//                break;
+//            }
+//            }
+//
+//        System.out.println(Arrays.toString(arr));
 
-                for (int j = 0; j < arr.length - i; j++) {
-                    if (arr[j] > arr[j + 1]) {
-                        int temp = arr[j + 1];
-                        arr[j + 1] = arr[j];
-                        arr[j] = temp;
-                        trueOrNot = false;
-                    }
+//        배열의 자리 바꿈
+//        selection sort 선택 정렬
+//        5번 반복 0번째 자리 확정
+//        4번 반복 1번째 자리 확정
+//        int[] arr = {50, 20, 60, 40, 30, 10};
+//        for(int i=0; i<arr.length-1; i++){
+//            for(int j=i+1; j<arr.length; j++){  // +1을 하는 이유는 자기와 비교할 필요가 없기 때문
+//                if(arr[i]>arr[j]){
+//                    int temp = arr[i];
+//                    arr[i] = arr[j];
+//                    arr[j] = temp;
+//
+//                }
+//            }
+//        }
+
+//        for(int i=0; i<arr.length; i++) {
+//            int num = 1;
+//            while (i+num < arr.length) {
+//                if (arr[i] > arr[i+num]) {
+//                    int temp = arr[i];
+//                    arr[i] = arr[i+num];
+//                    arr[i+num] = temp;
+//                }
+//                num++;
+//            }
+//        }
+//        System.out.println(Arrays.toString(arr));
+
+//        continue, break 문
+//        while && for문 continue, break 문
+//        1~100 중에서 5의 약수 또는 7의 약수를 제외한 값을 출력
+//        int num = 1 ;
+//        while(num<=100){
+//            if(num % 5 ==0 || num % 7 ==0){
+//                반복문 내에서 다시 조건문 검사로 다시  올라가도록 하는 구문
+//                아래와 같이 코딩할 경우 무한루프에 빠짐
+//                System.out.println("if문 일경우");
+//                continue;
+//            }else{
+//                System.out.println(num);
+//            }
+//            num++;
+//        }
+//        for(int i=0; i<=100; i++){
+//            if(i % 5 ==0 || i % 7 ==0){
+//                continue;
+//            }else{
+//                System.out.println(i);
+//            }
+//            추가적인 구문이 더 있을 경우에 해당 구문을 실행시킬 필요가 없을때 continue;
+//            System.out.println("hello");
+
+//            break문은 중도에 반복문을 강제로 종료 시키는 것
+//        }
+
+
+//        int num = 1;
+//        while(true){
+//            if(num % 5 ==0 || num % 7 ==0){
+//
+//            }else{
+//                System.out.println(num);
+//            }
+//            num++;
+//            if(num==101){
+//                break;
+//            }
+//        }
+
+//        int[] arr = {3, 20 ,10, 40};
+//        firstFor:
+//        for(int i=0; i<arr.length-1; i++){
+//            Boolean trueOrNot = true;
+//            secondFor:
+//            for(int j=0; j<arr.length-i; j++){
+//                if(arr[i]>arr[j+1]){
+//                    int temp = arr[i];
+//                    arr[i] = arr[j+1];
+//                    arr[j+1] = temp;
+//                    trueOrNot = false;
+//                    break firstFor;
+//                }
+//            }
+//        }
+
+        Label1:
+        for(int i=0; i<5; i++){
+            System.out.println("first for문" +i);
+            Label2:
+            for(int j=0; j<5; j++){
+                System.out.println("second for문" +j);
+                if(j==1){
+                    break Label1;
                 }
-            if(trueOrNot == true){
-                break;
             }
-            }
-
-        System.out.println(Arrays.toString(arr));
+        }
     }
 }
