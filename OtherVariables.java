@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class OtherVariables {
     public static void main(String[] args) {
 //        기초자료형 : 숫자, 문자(char), boolean, null
@@ -69,15 +72,78 @@ public class OtherVariables {
 
 //        정규표현식(메타문자열) : 특정한 패턴을 가진 문자열을 찾는 것
 //        regex regular expression
-        String st2 = "01abc123한글123";
+//        String st2 = "01abc123한글123";
 
-//            숫자를 제외한 문자만 새로운 문자열에 담아보자
-            String st3 = st2.replaceAll("[0-9]",""); // 0부터 9까지 공백으로 대체
-            String st4 = st2.replaceAll("[^0-9]","");
-            String st5 = st2.replaceAll("[^a-z]","");
-            System.out.println(st3);
-            System.out.println(st4);
-            System.out.println(st5);
+////            숫자를 제외한 문자만 새로운 문자열에 담아보자
+//            String st3 = st2.replaceAll("[0-9]",""); // 0부터 9까지 공백으로 대체
+//            String st4 = st2.replaceAll("[^0-9]","");
+//            String st5 = st2.replaceAll("[^a-z]","");
+//            System.out.println(st3);
+//            System.out.println(st4);
+//            System.out.println(st5);
 
+//        substring(a,b) : a부터 b미만까지 문자열을 잘라낸다
+//        String st = "hello world";
+//        String st2 = st.substring(6,11);
+//
+////        toUpperCase : 대문자로 변환 / toLowerCase : 소문자로 변환
+//        System.out.println(st.toUpperCase());
+
+//        split : 특정문자열을 가지고 규칙적으로 문자열을 자를때 사용, return값이 String배열
+//        String st = "a:b:c:d";
+//        String[] st_arr = st.split(":");
+//        System.out.println(Arrays.toString(st_arr));
+//
+//        String st2 = "abcd";
+//        String[] st2_arr = st2.split("");
+//        System.out.println(Arrays.toString(st2_arr));
+
+        String st3 = "dafwafguhgfhasda;f;gs;fafadagdahwfgagdagfsgi";
+//        문자는 몇번째에서 시작하는지 알아맞춰보자
+//        index of
+//        System.out.println(st3.indexOf("w"));
+////        charAt
+//        int result = 0;
+//        for(int i=0;i<st3.length(); i++){
+//            if(st3.charAt(i)=='w'){
+//                result = i;
+//                System.out.println(result);
+//            }
+//        }
+//        split을 써서 구해보자
+//        String[] st3_arr = st3.split("");
+//        System.out.println(Arrays.toString(st3_arr));
+//        for(int i=0; i<st3_arr.length; i++){
+//            if(st3_arr[i].equals("w")){
+//                System.out.println(i);
+//                break;
+//            }
+//        }
+
+//        String에 값을 더하개먼셔 합친다.
+//        메모리상에 과부하게 생길 수 있는 방식, 매번 값을 재정의하기 때문
+//        StringBuffer, StringBuilder
+//        두 방법은 대부분 유사하나, StringBuilder가 성능이 더 좋음
+//        그러나 StringBuilder는 특정상황에서 문제가 발생할 여지가 있다.
+
+//        Trim : 문자열 양 끝에 공백을 제거
+//        String st = " hello world ";
+//        System.out.println(st.trim());
+
+//        String db_input = "abc@naver.com";
+//        System.out.println("로그인 ID를 입력해주세요");
+//        Scanner sc = new Scanner(System.in); // 입력 받을때는  out이 아니라 in
+//        String input = sc.nextLine();
+//        input = input.trim();
+//        System.out.println(input);
+//        System.out.println(input.equals(db_input));
+
+//        Strip : 문자열 양 끝에 공백을 제거, 그러나 더 좋은 성능
+        Character c = '\u2000';
+        System.out.println(c);
+        String a = "\u2000abc\u2000";
+        System.out.println(a.trim());
+        System.out.println(a.strip());
     }
 }
+
