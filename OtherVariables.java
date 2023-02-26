@@ -1,5 +1,5 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.sql.ClientInfoStatus;
+import java.util.*;
 
 public class OtherVariables {
     public static void main(String[] args) {
@@ -126,6 +126,14 @@ public class OtherVariables {
 //        두 방법은 대부분 유사하나, StringBuilder가 성능이 더 좋음
 //        그러나 StringBuilder는 특정상황에서 문제가 발생할 여지가 있다.
 
+//        String[] arr = {"abc", "bcd", "cdf", "eft"};
+//        StringBuffer sb = new StringBuffer();
+//        for(String a : arr){
+//            sb.append(a);
+//        }
+//        sb.insert(10,"aaaaa");
+//        String result = sb.toString();
+
 //        Trim : 문자열 양 끝에 공백을 제거
 //        String st = " hello world ";
 //        System.out.println(st.trim());
@@ -139,11 +147,168 @@ public class OtherVariables {
 //        System.out.println(input.equals(db_input));
 
 //        Strip : 문자열 양 끝에 공백을 제거, 그러나 더 좋은 성능
-        Character c = '\u2000';
-        System.out.println(c);
-        String a = "\u2000abc\u2000";
-        System.out.println(a.trim());
-        System.out.println(a.strip());
+//        Character c = '\u2000';
+//        System.out.println(c);
+//        String a = "\u2000abc\u2000";
+//        System.out.println(a.trim());
+//        System.out.println(a.strip());
+
+//        String에서 int로 변환
+//        Integer.parseInt
+//        String st = "10";
+//        int num  = Integer.parseInt(st);
+//        System.out.println(num);
+
+//        int에서 String으로 변환
+//        Integer.toString, String.valueOf
+//        웬만한 타입은 모두 toString을 가지고 있음
+//        new해서 만드는 대부분의 객체에 toString이 있음
+//        int a = 10;
+//        String st = Integer.toString(a);
+//        st = String.valueOf(a);
+
+//        char int간의 변환
+//        char ch = 'a';
+//        int num = (int)ch;
+//        num = Character.valueOf(ch);
+//        System.out.println(num);
+
+//        배열
+//        int[] arr = {10,20,30,40,50}; // 배열 선언과 동시에 값을 할당
+//        primitive타입은 해당 타입(0)으로 초기화, 참조형 변수는 null로 초기화
+//        int[] arr2 = new int[5]; // 배열 선언만 : Java의 배열은 반드시 길이르 명시해줘야함
+//
+//        String[] st_arr = {"abc", "bcd"};
+//        String[] st_arr2 = new String[10]; // 아직 값이 정해지지 않았을때 사용
+//        System.out.println(st_arr2);
+
+//        Arrays클래스 기능
+//        int[] arr = {30,20,10,50};
+//        오름차순 정렬 : Arrays.sort
+//        프로그래밍에서 별다른 설정이 없으면 정렬의 기본은 오름차순
+//        Arrays.sort(arr);
+//        System.out.println(Arrays.toString(arr));
+//        내림차순같은 경우에는 Integer를 쓰거나, Comparator를 해야함
+//        Arrays.sort의 내림차순은 Collections.reverseOrder()를 써야한다, 하지만 primitive타입은 안됨
+//        String[] st_arr = {"abc", "aaa", "bbb"};
+//        Arrays.sort(st_arr, Collections.reverseOrder());
+
+//        int의 내림차순 정렬 : Integer로 변환 -> Collections.reverseOrder()
+//        Stream을 이용한 방법
+//        Integer[] arr_integer = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+//        Arrays.sort(arr_integer, Collections.reverseOrder());
+//        System.out.println(Arrays.toString(arr_integer));
+
+//        직접 내림차순
+//        int[] arr = {30,20,10,50};
+//        Arrays.sort(arr);
+////        10,20,30,50
+//        int[] arr_new = new int[arr.length];
+//        int cnt = 0;
+//        for(int i=arr.length-1; i>=0; i--){
+//            arr_new[cnt] = arr[i];
+//            cnt++;
+//        }
+//        System.out.println(Arrays.toString(arr_new));
+
+//        검색 : binaraySearch(이진검색) - 자료형이 정렬되어 있어야 정상적으로 자료를 검색하여 index를 리턴
+//        int[] arr = {30,20,10,50};
+//        Arrays.sort(arr);
+//        System.out.println(Arrays.binarySearch(arr, 30));
+
+//        배열의 복사 : copyOf(복사하고자하는 배열, length), copyOfRange(복사하고자하는 배열, a, b)
+//        String[] arr_st = {"a1", "a2", "a3"};
+//        String[] arr_st_new = Arrays.copyOf(arr_st, 5);
+//        System.out.println(Arrays.toString(arr_st_new));
+
+
+//        list와 배열과의 차이는 자료길이의 유연함
+//        선언방법은 new List를 통해 List를 생성
+//        List<String> l1 = new ArrayList<>();
+//        l1.add("abc");
+//        l1.add("bcd");
+//        System.out.println(l1);
+
+//        List<String> l2 = new ArrayList<>(Arrays.asList("abc", "bcd"));
+
+//        배열에서 List로 변환
+//        String[] arr = {"a1", "b1", "c1", "d1"};
+//        List<String> l1 = new ArrayList<>(Arrays.asList(arr));
+//        List<String> l2 = new ArrayList<>();
+//        for(String a : arr){
+//            l2.add(a);
+//        }
+////        List에서 배열로 변환
+////        List에서 값을 꺼내는 메서드는 l2.get(index)
+////        List에서 크기를 l2.size();
+//        String[] answer = new String[l2.size()];
+//        for(int i=0; i< answer.length; i++){
+//            answer[i] = l2.get(i);
+//        }
+//        String[] answer2 = l2.stream().toArray(String[]::new);
+//        System.out.println(Arrays.toString(answer));
+
+//        int배열에서 List로 전환
+//        int[] arr2 = {10,20,30};
+//        List<Integer> l1 = new ArrayList<>();
+//        for(int a : arr2){
+//            l1.add(a);
+//        }
+//        System.out.println(l1);
+
+////        list의 remove는 index로 지울 수 있고 value로도 지울 수 있움
+//        List<Integer> lst = new ArrayList<>();
+//        lst.add(1);
+//        lst.add(2);
+//        lst.add(3);
+//        lst.remove(2);
+//        System.out.println(lst);
+//        System.out.println(lst.contains(1));
+//        System.out.println(lst.isEmpty());
+
+//        List의 정렬 : sort, Comparator.naturalOrder()가 오름차순, Comparator.reverseOrder()가 내림차순
+//        List<String> lst = new ArrayList<>();
+//        lst.add("b");
+//        lst.add("a");
+//        lst.add("c");
+//        lst.sort(Comparator.naturalOrder());
+//        lst.sort(Comparator.reverseOrder());
+//        String[] arr = {"b", "a", "c"};
+//        Arrays.sort(arr);
+//        Arrays.sort(arr, Comparator.reverseOrder());
+
+//        map : key, value로 이루어져있는 자료형
+
+//        Map<String, String> mp  = new HashMap<>();
+////        map에 값을 더할때 : map에서 key는 중복되지 않음
+//        mp.put("a1", "abc");
+//        mp.put("a2", "abc");
+//        mp.put("a3", "abc");
+//        System.out.println(mp);
+//
+////        map에서 값을꺼낼때 : key를 통해 값을꺼냄, value가 중복이 가능하므로 value를 통해 값을 꺼낼수는 없음
+//        System.out.println(mp.get("a1"));
+//
+////        map은 자료 검색시 key를 통해 굉장히 빠르게 value를 찾아올 수 있음
+//
+////        key목록
+//        System.out.println(mp.keySet());
+////        각 key에 문자 f를 붙여 출력
+//        for(String a : mp.keySet()){
+//            System.out.println(a+"f");
+//        }
+//
+////        value목록
+//        System.out.println(mp.values());
+//
+////        containskey : 해당 key가 있는지 없는지, remove(key)
+//        System.out.println(mp.containsKey("a1"));
+
+//        마라톤 완주하지 못한 선수
+        String[] participant = {"leo", "kiki", "eden","aaaa"}; // n개
+        String[] completion = {"eden", "kiki", "aaaa"}; // m개
+//        mp에 completion목록에 사람이름 : 숫자 형태로 만들어둔다
+
     }
 }
 
