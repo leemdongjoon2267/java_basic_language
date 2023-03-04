@@ -304,10 +304,159 @@ public class OtherVariables {
 ////        containskey : 해당 key가 있는지 없는지, remove(key)
 //        System.out.println(mp.containsKey("a1"));
 
+
+//        map의 요소를 출력하는 방법1. Enhanced For문
+//        Map<String, String> map1  = new HashMap<>();
+//
+//        map1.put("a1", "abc");
+//        map1.put("a2", "abc");
+////        for(String a : map1.keySet()){
+////            System.out.println(a);
+////       }
+//
+////        방법2. iterator 방식 : iterator() 메소드를 이용한 요소의 출력
+////        iterator의 특직은 요소를 꺼낼때 소모가 된다
+//        Iterator<String> iter = map1.keySet().iterator();
+////        hasNext()는 요소가 있는지 없는지를 boolean형태로 출력
+//
+//
+//        while(iter.hasNext()){
+////            next()는 요소를 꺼내는 메서드
+//            System.out.println(iter.next());
+//        }
+
+
+
 //        마라톤 완주하지 못한 선수
-        String[] participant = {"leo", "kiki", "eden","aaaa"}; // n개
-        String[] completion = {"eden", "kiki", "aaaa"}; // m개
-//        mp에 completion목록에 사람이름 : 숫자 형태로 만들어둔다
+//        String[] participant = {"leo", "leo", "kiki", "eden","aaaa"}; // n개
+//        String[] completion = {"eden", "leo", "kiki", "aaaa"}; // m개
+////        mp에 completion목록에 사람이름 : 숫자 형태로 만들어둔다
+//
+//        Map<String, Integer> mp = new HashMap<>();
+////        TreeMap을 사용하면 정력이 되어서 나옴
+////        완주자 목록을 map에다가 넣어두고, participant로 조회해올지
+////        participant 목록을 mp에다가 넣어두고, 완주목록으로 조회해올지
+//        for(String a : completion){
+////            if(mp.containsKey(a)){
+////                mp.put(a, mp.get(a)+1);
+////            }else{
+////                mp.put(a, 1);
+////            }
+////            getOrDefault : key를 통해 값을 꺼내오되, 값이 있으면 해당값, 값이 없으면 Default로 설정한 값
+//            mp.put(a, mp.getOrDefault(a, 0)+1);
+//        }
+//        String answer="";
+//        for(String a : participant){
+//            if(!mp.containsKey(a)){
+//                answer = a;
+//                break;
+//            }
+//            if(mp.get(a)>1){
+//                mp.put(a, mp.get(a)-1);
+//            }else if(mp.get(a)==1){
+//                mp.remove(a);
+//            }
+//        }
+//        System.out.println(answer);
+
+
+//        String[] class1 = {"kim", "lee", "lee", "kim", "choi"}; //n개
+//        Map<String, Integer> map1 = new HashMap<>();
+//        for(String a : class1){
+////            put("kim", 2);
+////            put("lee", 2);
+////            put("choi", 1);
+//            map1.put(a, map1.getOrDefault(a, 0)+1);
+//        }
+//        System.out.println(map1.keySet());
+
+//        set : 중복을 알아서 제거해준다
+//        Set<String> set = new HashSet<>();
+//        for(String a : class1){
+//            set.add(a);
+//        }
+
+//        교집합, 합집합, 차집합
+//        Set<Integer> st1 = new HashSet<>();
+////        st1 : {1,2,3} st2 : {2,3,4} => 합집합 : {1,2,3,4} 교집합 : {2,3} 차집합 st1-st2 : {1}
+//        st1.add(1);
+//        st1.add(2);
+//        st1.add(3);
+//        Integer[] arr = {2,3,4};
+//        Set<Integer> st2 = new HashSet<>(Arrays.asList(arr));
+//
+////        합집합 : addAll
+////        교집합 : retainAll
+////        차집합 : removeAll
+//        st1.removeAll(st2);
+//        System.out.println(st1);
+//
+////        값을 더하는 것 : add
+////        여러값을 한꺼번에 더할때 : addAll
+////        값을 제거하는 것 : remove
+//
+//        Set<Integer> st4 = new HashSet<>();
+//        st4.add(10);
+//        st4.addAll(Arrays.asList(20,30,40));
+//        System.out.println(st4);
+
+//        stack 자료구조 : 후입선출, 최신의 데이터가 필요할때 사용
+//        Stack<String> st = new Stack<>();
+////        자룔를 더하는것은 push
+//        st.push("a1");
+//        st.push("a2");
+//        st.push("a3");
+////        자료를 꺼내는것은 pop, 하지만 pop은 실제로 자료를 꺼내버리기 때문에,
+////        pick을 사용해서 마지막 자료가 무엇인지를 확인을 할 수 있음
+//        System.out.println(st.pop());
+//        System.out.println(st);
+
+//        1분에 한번식 환율 데이터가 쌓인다
+//        int[] arr = {1300, 1301, 1302, 1209, 1240, 1300, 1301, 1302, 1209, 1240};
+
+//        어떤 고객이 5분에 한번식 송금신청을 한다고 가정했을때,
+//        해당 고객이 적용받은환율을 배열로 return해보자
+
+        int[] arr = {1,1,3,3,0,1};
+//        List<Integer> lst = new ArrayList<>();
+//        for(int a : arr){
+//            if(lst.isEmpty()){
+//                lst.add(a);
+//            }else{
+//                if(lst.get(lst.size()-1)!=a){
+//                    lst.add(a);
+//                }
+//            }
+//        }
+        Stack<Integer> st = new Stack<>();
+       for(int a : arr){
+           if(st.isEmpty()){
+               st.push(a);
+           }else{
+               if(st.peek()!=a){
+                   st.push(a);
+               }
+           }
+       }
+        System.out.println(st);
+       int[] answer = new int[st.size()];
+       int num = st.size();
+//       for(int i = 0; i<num; i++){
+//           answer[i] = st.pop();
+//       }
+
+        for(int i=num-1; i>=0; i--){
+            answer[i] = st.pop();
+        }
+//        int num = 0;
+//        for(int a : arr){
+//            answer[num] = a;
+//            num++;
+//        }
+        System.out.println(Arrays.toString(answer));
+
+
+
 
     }
 }
