@@ -1,3 +1,5 @@
+package Java_basic_grammer;
+
 import java.sql.ClientInfoStatus;
 import java.util.*;
 
@@ -98,7 +100,7 @@ public class OtherVariables {
 //        String[] st2_arr = st2.split("");
 //        System.out.println(Arrays.toString(st2_arr));
 
-        String st3 = "dafwafguhgfhasda;f;gs;fafadagdahwfgagdagfsgi";
+//        String st3 = "dafwafguhgfhasda;f;gs;fafadagdahwfgagdagfsgi";
 //        문자는 몇번째에서 시작하는지 알아맞춰보자
 //        index of
 //        System.out.println(st3.indexOf("w"));
@@ -417,44 +419,107 @@ public class OtherVariables {
 //        어떤 고객이 5분에 한번식 송금신청을 한다고 가정했을때,
 //        해당 고객이 적용받은환율을 배열로 return해보자
 
-        int[] arr = {1,1,3,3,0,1};
-//        List<Integer> lst = new ArrayList<>();
-//        for(int a : arr){
-//            if(lst.isEmpty()){
-//                lst.add(a);
-//            }else{
-//                if(lst.get(lst.size()-1)!=a){
-//                    lst.add(a);
-//                }
-//            }
-//        }
-        Stack<Integer> st = new Stack<>();
-       for(int a : arr){
-           if(st.isEmpty()){
-               st.push(a);
-           }else{
-               if(st.peek()!=a){
-                   st.push(a);
-               }
-           }
-       }
-        System.out.println(st);
-       int[] answer = new int[st.size()];
-       int num = st.size();
-//       for(int i = 0; i<num; i++){
-//           answer[i] = st.pop();
+//        int[] arr = {1,1,3,3,0,1};
+////        List<Integer> lst = new ArrayList<>();
+////        for(int a : arr){
+////            if(lst.isEmpty()){
+////                lst.add(a);
+////            }else{
+////                if(lst.get(lst.size()-1)!=a){
+////                    lst.add(a);
+////                }
+////            }
+////        }
+//        Stack<Integer> st = new Stack<>();
+//       for(int a : arr){
+//           if(st.isEmpty()){
+//               st.push(a);
+//           }else{
+//               if(st.peek()!=a){
+//                   st.push(a);
+//               }
+//           }
 //       }
-
-        for(int i=num-1; i>=0; i--){
-            answer[i] = st.pop();
-        }
-//        int num = 0;
-//        for(int a : arr){
-//            answer[num] = a;
-//            num++;
+//        System.out.println(st);
+//       int[] answer = new int[st.size()];
+//       int num = st.size();
+////       for(int i = 0; i<num; i++){
+////           answer[i] = st.pop();
+////       }
+//
+//        for(int i=num-1; i>=0; i--){
+//            answer[i] = st.pop();
 //        }
+////        int num = 0;
+////        for(int a : arr){
+////            answer[num] = a;
+////            num++;
+////        }
+//        System.out.println(Arrays.toString(answer));
+
+
+//        Queue를 선언할때 linkedList를 선언하여 Queue로 받아주는 방식이 일방적인 방식이다
+//        <업캐스팅의 이우>
+//        1.추후 변경사항이 생겼을때, 유연하게 LinkedList부분만 바꿔주면 되는 유연함이 있다
+//        2.LinkedListrk가 Queue 상속(또는 구현)하고 있기 때문에 LinkedList에는 없는 기능을 쓸 수가 있다
+        List<Integer> lst = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+//        queue.add(10);
+//        queue.add(20);
+//        System.out.println(queue);
+//        System.out.println(queue.peek());
+//        System.out.println(queue.poll());
+//        System.out.println(queue);
+
+//        Deque<Integer> dq = new ArrayDeque<>();
+////        addFirst도 있고, addLast도 있음
+//        dq.addFirst(10);
+//        dq.addFirst(20);
+//        dq.addLast(30);
+//        System.out.println(dq);
+//        System.out.println(dq.peekFirst());
+//        System.out.println(dq.peekLast());
+//        System.out.println(dq.pollFirst());
+//        System.out.println(dq.pollLast());
+
+//        1차원배열
+//        String[] person1 = {"kim", "19"};
+//        String[] person2 = {"lee", "20"};
+//        String[] person3 = {"choi", "20"};
+////        2차원배열
+//        String[][]class1 = {{"kim", "19"},
+//                            {"lee", "20","male"},
+//                            {"choi", "20"}};
+
+
+//        내부길이를 유동적으로 하는, 가변배열을 사용할 수는 있으나
+//        선언후 세팅하는 방식으로 배열을 만들경우 각각의 길이를 선언한 배열을 별도로 생성
+        int[] c1 = {60,40,70,40,80,100,50};
+        int[][] s1 = {{60,40,70,70}, {40,80,100,100}, {80,100,50,50,100}};
+//        for문을 통해 각 반의 수학점수의 평균을 구하시오
+//        평균을 담은 1차원 배열을 만들어서 출력
+
+        int[] answer = new int [s1.length];
+        for(int i=0; i<s1.length; i++){
+            int total = 0;
+            for(int math : s1[i]){
+                total += math;
+            }
+            answer[i] = (total/s1[i].length);
+        }
         System.out.println(Arrays.toString(answer));
 
+//        혼자 해본거
+//        int sum = 0;
+//        int avg = 0;
+//        for(int i=0; i<s1.length; i++){
+//            for(int j=0; j<s1[i].length; j++){
+//                sum+=s1[i][j];
+//            }
+//            avg = sum/s1[i].length;
+//        }
+//
+//        System.out.println(Arrays.toString(avg));
 
 
 

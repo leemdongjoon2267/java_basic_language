@@ -1,3 +1,5 @@
+package Java_basic_grammer;
+
 import java.util.Scanner;
 
 // 자바 입출력에 대한 Scanner 코드입니다.
