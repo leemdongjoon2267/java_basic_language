@@ -16,11 +16,31 @@ public class ConstructorTest {
 //
 //    }
 //    별도의 생성자를 추가하게 되면 반드시, 기본생성자를 따로 추가해줘야한다
+//    this()는 같은 클래스내에 타입에 맞는 다른 생성자를 호출
+//    super()는 타입에 맞는 부모클래스의 생성자를 호출하는 것(상속)
+    public ConstructorTest(String email, String password){
+        this(email, password, 0);
+//        this.email = email;
+//        this.password = password;
+
+    }
    public ConstructorTest(String password, int age){
         this.password = password;
         this.age = age;
     }
+    public ConstructorTest(String email, String password, int age){
+        this.email = email;
+        this.password = password;
+        this.age = age = 20;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
     public String getPassword() {
         return password;
     }

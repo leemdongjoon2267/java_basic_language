@@ -11,5 +11,15 @@ public class ConstructorMain {
         System.out.println(ct2.getPassword());
         System.out.println(ct2.getAge());
 
+        ConstructorTest ct3 = new ConstructorTest("ssss",20);
+        System.out.println(ct3.getPassword());
+        System.out.println(ct3.getAge());
+
+        ConstructorTest ct4 = new ConstructorTest("aaaa@naver.com", "abc");
+        System.out.println(ct3.getName());
+        System.out.println(ct3.getEmail());
+        System.out.println(ct3.getPassword());
+        System.out.println(ct4.getAge());
+
     }
 }
